@@ -9,3 +9,10 @@ import '@angular/router';
 import 'rxjs';
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
+
+import '@angular2-material/core';
+import '@angular2-material/card';
+import '@angular2-material/input';
+import '@angular2-material/list';
+import '@angular2-material/progress-circle';
+import '@angular2-material/toolbar';
