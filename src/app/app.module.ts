@@ -1,23 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { MdCardModule } from '@angular2-material/card';
-import { MdListModule } from '@angular2-material/list';
-import { MdInputModule } from '@angular2-material/input';
-import { MdProgressCircleModule } from '@angular2-material/progress-circle';
-import { MdToolbarModule } from '@angular2-material/toolbar';
+import { HttpModule } from '@angular/http';
+import { SpotifyService } from './spotify/spotify.service';
+import { routing } from './app.routing';
+import { SearchComponent } from './search/search.component';
+import { SearchBoxComponent } from './search-box/search-box.component';
+import {MaterialModule} from "@angular/material";
+import {PlaylistComponent} from "./playlist/playlist.component";
 
 @NgModule({
     imports: [
         BrowserModule,
-        MdCardModule,
-        MdInputModule,
-        MdListModule,
-        MdProgressCircleModule,
-        MdToolbarModule
+        HttpModule,
+        routing,
+        MaterialModule.forRoot()
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        SearchComponent,
+        SearchBoxComponent,
+        PlaylistComponent
+    ],
+    providers: [
+        SpotifyService
     ],
     bootstrap: [ AppComponent ]
 })

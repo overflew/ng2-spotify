@@ -144,10 +144,12 @@ that we're actually going to use in our application.
 
 ```typescript
 import { Image } from './image.model';
+import { Tracks } from './tracks.model';
 
 export interface Album {
-    images: Image[];
     name: string;
+    images: Image[];
+    tracks: Tracks;
 }
 ```
 
@@ -195,6 +197,16 @@ import { Artist } from './artist.model';
 export interface Track {
     artists: Artist[];
     name: string;
+}
+```
+
+**src/app/spotify/model/tracks.model.ts**
+
+```typescript
+import { Track } from './track.model';
+
+export interface Tracks {
+    items: Track[];
 }
 ```
 
@@ -271,6 +283,20 @@ A few things to note here:
   as an Observable<Album>
 
 *I'd love to introduce some unit test here but since I'm a little short on time I'll be saving that for some other time*
+
+To be able to use the Spotify Service in our application we'll add it to the providers section in the AppModule:
+
+```typescript
+// ...
+import { SpotifyService } from './spotify/spotify.service';
+
+@NgModule({
+    // ...
+    providers: [
+        SpotifyService
+    ],
+// ...
+```
 
 
   
